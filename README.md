@@ -1,31 +1,43 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# **BATTLESHIPS** by Khan Lewis
 
-Welcome KhanLewis,
+This is a classic remake of the famous Battelships game, this battleships game runs in a mock python terminal hosted on Heroku.
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+The aim of this game is to destroy your oppenants battlesips you do this by selecting coordinates on the grid untill you hit their battleship. This game gives you minimum ammount of turns before the game ends so choose whisely. 
 
-## Reminders
+To view my live version of this game click [HERE]()
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+---
 
-## Creating the Heroku app
+## **HOW TO PLAY:**
+1. The game will ask you to enter a row and a column.
+2. If you miss the board will be marked with a "?".
+3. If you hit the ship the game will display a messaged saying you hit my ship you won.
+4. If you run out of turns you will see a message saying you lost.
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+---
 
-1. `heroku/python`
-2. `heroku/nodejs`
+## **FEATURES:**
+* Player can select size of playing board.
+image
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+* count the number of turns you have taken 
+* takes user input
+image
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+* validations users input and checks for errors.
+image
 
-Connect your GitHub repository and deploy as normal.
 
-## Constraints
+---
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+## **FUTURE FEATURES:**
+* Allow the user to decide where their ships wil be placed.
+* Allow the user to change the size of their ships 
+* Allow the user to change the orinetation of their ships 
+* The game to place mulitple ships 
+* Show the the users board with the computers guesses
+* Give a option of player v player.
 
------
-Happy coding!
+--- 
+
+## **DATA MODEL:**
