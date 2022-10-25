@@ -59,26 +59,36 @@ def choose_col():
     players_choice_of_col = int(input(f"Choose a col between 1 - {len(users_board)}: ")) - 1
     return players_choice_of_col
 
+
 for turn in range(len(users_board)):
+    """
+    Takes in the users guess and detrmines if they have won,missed already made that guess or ran out of turns 
+    """
     players_choice_of_row = choose_row()
     players_choice_of_col = choose_col()
 
+    # if the user won they receieve a message and the game ends
+
     if players_choice_of_row == ship_row and players_choice_of_col == ship_col:
-        print("you destoryed my ship.. you won")
+        print("YOU DESTROYED MY SHIP!")
+        users_board[players_choice_of_row][players_choice_of_col] = "!"
+        print_board(users_board)
         break
-    elif players_choice_of_col < 0 or players_choice_of_col > len(users_board):
-        print("your col was out of range")
-
-    elif players_choice_of_row < 0 or players_choice_of_row > len(users_board):
-        print("your row was out of range")
-
     else:
-        if players_choice_of_row != ship_row and players_choice_of_col != ship_col:
+        # if the users choice was not in bounds of the board they recieve a message
+        if players_choice_of_col < 0 or players_choice_of_col > len(users_board):
+            print("your col was out of range")
+
+        elif players_choice_of_row < 0 or players_choice_of_row > len(users_board):
+            print("your row was out of range")
+
+        # if the user enters in a row and col that they have already entered they recevive a message
+        elif users_board[players_choice_of_row][players_choice_of_col] == "?":
+            print("you have already tried that!")
+
+        else:
             print("you missed...")
             users_board[players_choice_of_row][players_choice_of_col] = "?"
 
-        elif users_board[players_choice_of_row][players_choice_of_col] == "?":
-            print("you have already tried that!")
-            
     print(f"{turn + 1} out of {len(users_board)}")
     print_board(users_board)
