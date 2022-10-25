@@ -11,6 +11,8 @@ def create_board(users_input):
     board = []
     for i in range(users_input):
         board.append(["~"]*users_input)
+    if users_input < 4 or users_input > 8:
+        raise ValueError("Please enter a number between 4 - 8")
     return board
 
 
@@ -62,7 +64,8 @@ def choose_col():
 
 for turn in range(len(users_board)):
     """
-    Takes in the users guess and detrmines if they have won,missed already made that guess or ran out of turns 
+    Takes in the users guess and detrmines
+    if they have won,missed already made that guess or ran out of turns
     """
     players_choice_of_row = choose_row()
     players_choice_of_col = choose_col()
@@ -75,20 +78,24 @@ for turn in range(len(users_board)):
         print_board(users_board)
         break
     else:
-        # if the users choice was not in bounds of the board they recieve a message
+        # if the users choice was not in bounds receive a warning
         if players_choice_of_col < 0 or players_choice_of_col > len(users_board):
             print("your col was out of range")
 
         elif players_choice_of_row < 0 or players_choice_of_row > len(users_board):
             print("your row was out of range")
 
-        # if the user enters in a row and col that they have already entered they recevive a message
+        # if the user enters a number to high or low they receive a warning
         elif users_board[players_choice_of_row][players_choice_of_col] == "?":
             print("you have already tried that!")
 
         else:
+            # if they user have missed the ship it will print out a "?" on the users board
             print("you missed...")
             users_board[players_choice_of_row][players_choice_of_col] = "?"
 
-    print(f"{turn + 1} out of {len(users_board)}")
+    print(f"Turn: {turn + 1} out of {len(users_board)}")
     print_board(users_board)
+
+if turn >= len(users_board):
+    print("game over")
