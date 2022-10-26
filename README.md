@@ -4,7 +4,7 @@ This is a classic remake of the famous Battelships game, this battleships game r
 
 The aim of this game is to destroy your oppenants battlesips you do this by selecting coordinates on the grid untill you hit their battleship. This game gives you minimum ammount of turns before the game ends so choose whisely. 
 
-To view my live version of this game click [HERE]()
+To view my live version of this game click [HERE](https://battle-ships1.herokuapp.com/)
 
 ---
 
