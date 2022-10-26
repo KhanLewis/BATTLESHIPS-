@@ -13,7 +13,7 @@ def create_board(users_input):
         i = ["~"]
         board.append(i*users_input)
     if users_input < 4 or users_input > 8:
-        raise ValueError("Please enter a")
+        raise ValueError("Please enter a number between 4-8")
     return board
 
 
@@ -51,7 +51,7 @@ def choose_row():
     """
     Takes users input for their row choice
     """
-    choose_a_row = int(input(f"choose between 1- {len(users_board)}: ")) - 1
+    choose_a_row = int(input(f"Choose row 1- {len(users_board)}: ")) - 1
     return choose_a_row
 
 
@@ -59,7 +59,7 @@ def choose_col():
     """
     Takes users input for their column choice
     """
-    choose_a_col = int(input(f"Choose between 1- {len(users_board)}: ")) - 1
+    choose_a_col = int(input(f"Choose col 1- {len(users_board)}: ")) - 1
     return choose_a_col
 
 

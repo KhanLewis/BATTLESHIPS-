@@ -68,7 +68,13 @@ such as create_ board, print_board these help the game run while keeping the cod
 ## **DEPLOYMENT**
 I deployed this project on Heroku.
 * The steps I took was:
-  * 
+  * First create accou*nt on Heroku
+  * Select add app
+  * Go on to settings and add two buildpacks: Python and nodejs
+  * Go on to deploy then select Github
+  * Choose your repository 
+  * Select main and deploy branch
+
 
 ---
 
