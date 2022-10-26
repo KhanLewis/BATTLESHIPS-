@@ -18,15 +18,11 @@ To view my live version of this game click [HERE](https://battle-ships1.herokuap
 
 ## **FEATURES:**
 * Player can select size of playing board.
-image
 
-* the game counts the number of turns you have taken 
-* takes user input
-* depending on the size of the board you choose will give you extra turns. for example if the board you chose was 8 by 8 then you will get 8 turns to find the oppenants ship.
-image
-
+* The game counts the number of turns you have taken 
+* Takes user input
+* Depending on the size of the board you choose will give you extra turns. for example if the board you chose was 8 by 8 then you will get 8 turns to find the opponents ship.
 * validations users input and checks for errors.
-image
 
 
 ---
@@ -42,6 +38,7 @@ image
 --- 
 
 ## **DATA MODEL:**
+
 I decided to do this project using fuctions and methods.
 such as create_ board, print_board these help the game run while keeping the code easy to read and clean.
 ---
