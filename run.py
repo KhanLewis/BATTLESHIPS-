@@ -13,7 +13,7 @@ def create_board(users_input):
         i = ["~"]
         board.append(i*users_input)
     if users_input < 4 or users_input > 8:
-        raise ValueError("Please enter a number between 4-8")
+        raise ValueError("Please enter a")
     return board
 
 
@@ -63,34 +63,31 @@ def choose_col():
     return choose_a_col
 
 
-for turn in range(len(users_board)):
+NO_OF_TURNS = len(users_board)
 
+
+while NO_OF_TURNS > 0:
     players_choice_row = choose_row()
     players_choice_col = choose_col()
-
-    # if the user won they receieve a message and the game ends
-
-    if players_choice_row == ship_row and players_choice_col == ship_col:
-        print("YOU DESTROYED MY SHIP!")
-        users_board[players_choice_row][players_choice_col] = "!"
-        print_board(users_board)
-        break
-    else:
-        # if the users choice was not in bounds receive a warning
-        if players_choice_col < 0 or players_choice_col > len(users_board):
-            print("your col was out of range")
-
-        elif players_choice_row < 0 or players_choice_row > len(users_board):
-            print("your row was out of range")
-
-        # if the user enters a number to high or low they receive a warning
-        elif users_board[players_choice_row][players_choice_col] == "?":
-            print("you have already tried that!")
+    try:
+        if players_choice_row == ship_row and players_choice_col == ship_col:
+            print("YOU DESTROYED MY SHIP!")
+            users_board[players_choice_row][players_choice_col] = "!"
+            print_board(users_board)
+            break
 
         else:
-            # if they user have missed the ship it will print out a "?"
-            print("you missed...")
-            users_board[players_choice_row][players_choice_col] = "?"
+            # if the user enters a number to high or low they receive a warning
+            if users_board[players_choice_row][players_choice_col] == "?":
+                print("you have already tried that!")
 
-        print(f"Turn: {turn + 1} out of {len(users_board)}")
-        print_board(users_board)
+            else:
+                # if they user have missed the ship it will print out a "?"
+                print("you missed...")
+                users_board[players_choice_row][players_choice_col] = "?"
+                NO_OF_TURNS -= 1
+
+            print(f"{NO_OF_TURNS} go's remaining")
+            print_board(users_board)
+    except IndexError:
+        print("Your col or row were out of range")

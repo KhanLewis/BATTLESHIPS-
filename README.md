@@ -70,9 +70,7 @@ I deployed this project on Heroku.
 * The steps I took was:
   * 
 
-
 ---
-
 
 ## **CREDITS**
 * Code institute
