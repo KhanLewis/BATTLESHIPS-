@@ -10,15 +10,16 @@ def create_board(users_input):
     """
     board = []
     for i in range(users_input):
-        board.append(["~"]*users_input)
+        i = ["~"]
+        board.append(i*users_input)
     if users_input < 4 or users_input > 8:
-        raise ValueError("Please enter a number between 4 - 8")
+        raise ValueError("Please enter a")
     return board
 
 
-def print_board(users_board):
+def print_board(board):
     """"prints the board with spaces between"""
-    for i in users_board:
+    for i in board:
         print(" ".join(i))
 
 
@@ -48,54 +49,48 @@ ship_col = random_col(users_board)
 
 def choose_row():
     """
-    takes users input for their row choice
+    Takes users input for their row choice
     """
-    players_choice_of_row = int(input(f"Choose a row between 1 - {len(users_board)}: ")) - 1
-    return players_choice_of_row
+    choose_a_row = int(input(f"choose between 1- {len(users_board)}: ")) - 1
+    return choose_a_row
 
 
 def choose_col():
     """
-    takes users input for their column choice
+    Takes users input for their column choice
     """
-    players_choice_of_col = int(input(f"Choose a col between 1 - {len(users_board)}: ")) - 1
-    return players_choice_of_col
+    choose_a_col = int(input(f"Choose between 1- {len(users_board)}: ")) - 1
+    return choose_a_col
 
 
 for turn in range(len(users_board)):
-    """
-    Takes in the users guess and detrmines
-    if they have won,missed already made that guess or ran out of turns
-    """
-    players_choice_of_row = choose_row()
-    players_choice_of_col = choose_col()
+
+    players_choice_row = choose_row()
+    players_choice_col = choose_col()
 
     # if the user won they receieve a message and the game ends
 
-    if players_choice_of_row == ship_row and players_choice_of_col == ship_col:
+    if players_choice_row == ship_row and players_choice_col == ship_col:
         print("YOU DESTROYED MY SHIP!")
-        users_board[players_choice_of_row][players_choice_of_col] = "!"
+        users_board[players_choice_row][players_choice_col] = "!"
         print_board(users_board)
         break
     else:
         # if the users choice was not in bounds receive a warning
-        if players_choice_of_col < 0 or players_choice_of_col > len(users_board):
+        if players_choice_col < 0 or players_choice_col > len(users_board):
             print("your col was out of range")
 
-        elif players_choice_of_row < 0 or players_choice_of_row > len(users_board):
+        elif players_choice_row < 0 or players_choice_row > len(users_board):
             print("your row was out of range")
 
         # if the user enters a number to high or low they receive a warning
-        elif users_board[players_choice_of_row][players_choice_of_col] == "?":
+        elif users_board[players_choice_row][players_choice_col] == "?":
             print("you have already tried that!")
 
         else:
-            # if they user have missed the ship it will print out a "?" on the users board
+            # if they user have missed the ship it will print out a "?"
             print("you missed...")
-            users_board[players_choice_of_row][players_choice_of_col] = "?"
+            users_board[players_choice_row][players_choice_col] = "?"
 
-    print(f"Turn: {turn + 1} out of {len(users_board)}")
-    print_board(users_board)
-
-if turn >= len(users_board):
-    print("game over")
+        print(f"Turn: {turn + 1} out of {len(users_board)}")
+        print_board(users_board)
