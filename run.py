@@ -13,7 +13,7 @@ def create_board(users_input):
         i = ["~"]
         board.append(i*users_input)
     if users_input < 4 or users_input > 8:
-        raise ValueError("Please enter a")
+        raise ValueError("Please enter between 4-8")
     return board
 
 
